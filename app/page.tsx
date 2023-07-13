@@ -1,8 +1,8 @@
 import React from 'react'
-import HeroSection from '@/src/components/hero-section'
+import HeroSection from '@/src/components/containers/hero-section'
 export default function Home() {
   return (
-    <div className="w-screen h-screen bg-black">
+    <div className="bg-black">
       <HeroSection></HeroSection>
     </div>
   )

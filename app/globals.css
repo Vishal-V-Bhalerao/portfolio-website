@@ -1,7 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap');
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
@@ -17,4 +17,29 @@
 }
 
 body {
+  background-color: black;
+  font-family: Noto Sans sans-serif;
+  color: white;
+  margin: 0;
+  padding: 0;
+}
+
+.x_small:hover {
+  transform: scale(0.905);
+}
+
+.small:hover {
+  transform: scale(0.925);
+}
+
+.medium:hover {
+  transform: scale(0.955);
+}
+
+.large:hover {
+  transform: scale(0.975);
+}
+
+.x_large:hover {
+  transform: scale(0.985);
 }
