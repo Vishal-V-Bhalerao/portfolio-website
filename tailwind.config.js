@@ -18,6 +18,18 @@ module.exports = {
       'large': '12px',
     },
     extend: {
+      keyframes: {
+        slide: {
+          '0%': { transform: 'translateX(-100%)'},
+          '100%': { transform: 'translateX(-100%)' },
+        },
+      },
+      animation: {
+        slide: 'slide 1s ease-in-out infinite',
+      },
+      fontSize:{
+        '10xl': '10rem',
+      }
     },
   },
   plugins: [],

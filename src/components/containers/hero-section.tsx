@@ -1,12 +1,14 @@
 'use client'
 import lottie from 'lottie-web'
 import useMyCustomHook from '../../hooks/customTypedRef'
-import animationData from '@/public/json/127447-kitty-cat-error-404.json'
+import animationData from '@/public/json/feNtrQwSyg_new.json'
+import bgAnimationData from '@/public/json/animation_lk12zdpa.json'
 import React, { useEffect, useRef } from 'react'
 import ActionCard, { ActionCardBody, ActionCardFooter, ActionCardHeader } from '../common/action-card'
-import { faBriefcase } from '@fortawesome/free-solid-svg-icons'
+import { faFolder, faFaceSmile, faPaperPlane } from '@fortawesome/free-regular-svg-icons'
 export default function HeroSection() {
   const { ref: animationRef } = useMyCustomHook<HTMLDivElement>()
+  const { ref: bgAnimationRef } = useMyCustomHook<HTMLDivElement>()
   useEffect(() => {
     if (animationRef.current) {
       lottie.loadAnimation({
@@ -20,28 +22,69 @@ export default function HeroSection() {
       })
     }
   }, [animationRef])
+  useEffect(() => {
+    if (bgAnimationRef.current) {
+      lottie.loadAnimation({
+        loop: true,
+        autoplay: true,
+        animationData: bgAnimationData,
+        rendererSettings: {
+          preserveAspectRatio: 'xMidYMid slice',
+        },
+        container: bgAnimationRef.current,
+      })
+    }
+  }, [bgAnimationRef])
   return (
     <div className="w-full">
-      <div className="w-full h-screen">
-        <div className="w-full h-2/5 flex justify-center items-center">
-          <h1 className="text-8xl font-bold">{`HI! I am Vishal Bhalerao`}</h1>
+      <div ref={bgAnimationRef} className="absolute w-full h-full top-0 left-0 -z-10"></div>
+      <div className="w-full h-screen bg-transparent">
+        <div className="w-full h-2/5 flex flex-col justify-center items-center">
+          <div>
+            <p className="text-xl font-bold">{`HI! I am`}</p>
+            <h1 className="text-6xl font-bold">{`Vishal Bhalerao`}</h1>
+          </div>
         </div>
         <div className="w-full h-3/5 p-2 grid gap-2 grid-cols-2">
-          <ActionCard textColor="black" type={'LARGE'} bgColor="#FFF480">
-            <div className="w-full h-full" ref={animationRef}></div>
+          <ActionCard textColor="black" type={'LARGE'} bgColor="#2900E8">
+            <>
+              <div className="w-10/12 h-10/12 absolute top-0" ref={animationRef}></div>
+              <ActionCardHeader></ActionCardHeader>
+              <div className="absolute top-1/3 flex gap-5">
+                <span className="inline-block text-10xl fw8 text-white animation-slider whitespace-nowrap">
+                  {'Frontend developer in React'}
+                </span>
+                <span className="inline-block text-10xl fw8 text-white animation-slider whitespace-nowrap">
+                  {'. Frontend developer in React'}
+                </span>
+              </div>
+              <ActionCardFooter icon={faFolder} label="Work"></ActionCardFooter>
+            </>
           </ActionCard>
           <div className="w-full grid gap-2">
             <div className="w-full grid gap-2 grid-cols-2">
               <ActionCard textColor="black" type={'MEDIUM'} bgColor="white">
-                <div className="flex flex-col justify-between p-10 h-full">
+                <>
                   <ActionCardHeader></ActionCardHeader>
                   <ActionCardBody></ActionCardBody>
-                  <ActionCardFooter icon={faBriefcase} label="Work"></ActionCardFooter>
-                </div>
+                  <ActionCardFooter icon={faFolder} label="Work"></ActionCardFooter>
+                </>
               </ActionCard>
-              <ActionCard textColor="white" type={'MEDIUM'} bgColor="#1B1B1F"></ActionCard>
+              <ActionCard textColor="white" type={'MEDIUM'} bgColor="#1B1B1F">
+                <>
+                  <ActionCardHeader></ActionCardHeader>
+                  <ActionCardBody></ActionCardBody>
+                  <ActionCardFooter icon={faFaceSmile} label="About Me"></ActionCardFooter>
+                </>
+              </ActionCard>
             </div>
-            <ActionCard textColor="white" type={'LARGE'} bgColor="#2900E8"></ActionCard>
+            <ActionCard textColor="black" type={'LARGE'} bgColor="#FFF480">
+              <>
+                <ActionCardHeader></ActionCardHeader>
+                <ActionCardBody></ActionCardBody>
+                <ActionCardFooter icon={faPaperPlane} label="Contact Me"></ActionCardFooter>
+              </>
+            </ActionCard>
           </div>
         </div>
       </div>

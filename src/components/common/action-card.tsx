@@ -34,7 +34,7 @@ const ActionCard: FC<ActionCardProps> = ({ bgColor, type, children, textColor }:
         backgroundColor: bgColor,
         color: textColor,
       }}
-      className={`w-full h-full border-ra rounded-full overflow-hidden transition ease delay-100 bg-blue-500 duration-300 ${getClassNameByType()}`}
+      className={` flex flex-col justify-end p-14 cursor-pointer relative w-full h-full border-ra rounded-full overflow-hidden transition ease delay-100 bg-blue-500 duration-300 ${getClassNameByType()}`}
     >
       {children}
     </div>
@@ -50,7 +50,7 @@ export interface ActionCardHeaderProps {
 
 export const ActionCardHeader: FC<ActionCardHeaderProps> = ({ icon, label }) => {
   return (
-    <div className="flex p-5 justify-between items-center">
+    <div className="flex justify-between items-center">
       <div>{label && <h5>{label}</h5>}</div>
       <div>{icon && <FontAwesomeIcon icon={icon}></FontAwesomeIcon>}</div>
     </div>
@@ -64,7 +64,7 @@ export interface ActionCardBodyProps {
 
 export const ActionCardBody: FC<ActionCardBodyProps> = ({ icon, label }) => {
   return (
-    <div className="flex p-5 justify-between items-center">
+    <div className="flex justify-between items-center">
       <div>{icon && <FontAwesomeIcon icon={icon}></FontAwesomeIcon>}</div>
       <div>{label && <h5>{label}</h5>}</div>
     </div>
@@ -78,7 +78,7 @@ export interface ActionCardFooterProps {
 
 export const ActionCardFooter: FC<ActionCardFooterProps> = ({ icon, label }) => {
   return (
-    <div className="flex p-5 justify-between items-center text-xl font-semibold">
+    <div className="flex justify-between items-center text-xl font-semibold">
       <div>{label && <h5>{label}</h5>}</div>
       <div>{icon && <FontAwesomeIcon icon={icon}></FontAwesomeIcon>}</div>
     </div>
