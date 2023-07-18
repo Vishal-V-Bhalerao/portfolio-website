@@ -15,7 +15,7 @@ module.exports = {
       'md': '0.375rem',
       'lg': '0.5rem',
       'full': '80px',
-      'large': '12px',
+      'large': '90px',
     },
     extend: {
       keyframes: {
@@ -29,6 +29,7 @@ module.exports = {
       },
       fontSize:{
         '10xl': '10rem',
+        '11xl': '11rem',
       }
     },
   },

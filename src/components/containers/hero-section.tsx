@@ -39,38 +39,49 @@ export default function HeroSection() {
     <div className="w-full">
       <div ref={bgAnimationRef} className="absolute w-full h-full top-0 left-0 -z-10"></div>
       <div className="w-full h-screen bg-transparent">
-        <div className="w-full h-2/5 flex flex-col justify-center items-center">
+        <div className="w-full h-2/5  flex flex-col justify-center items-center">
           <div>
             <p className="text-xl font-bold">{`HI! I am`}</p>
             <h1 className="text-6xl font-bold">{`Vishal Bhalerao`}</h1>
           </div>
         </div>
-        <div className="w-full h-3/5 p-2 grid gap-2 grid-cols-2">
-          <ActionCard textColor="black" type={'LARGE'} bgColor="#2900E8">
+        <div className="w-full h-3/5 grid gap-2 grid-cols-2">
+          <ActionCard
+            hideTextOnHover={true}
+            scrollTextColor="white"
+            scrollTextSize="9rem"
+            textColor="black"
+            type={'LARGE'}
+            bgColor="#2900E8"
+          >
             <>
               <div className="w-10/12 h-10/12 absolute top-0" ref={animationRef}></div>
               <ActionCardHeader></ActionCardHeader>
-              <div className="absolute top-1/3 flex gap-5">
-                <span className="inline-block text-10xl fw8 text-white animation-slider whitespace-nowrap">
-                  {'Frontend developer in React'}
-                </span>
-                <span className="inline-block text-10xl fw8 text-white animation-slider whitespace-nowrap">
-                  {'. Frontend developer in React'}
-                </span>
-              </div>
               <ActionCardFooter icon={faFolder} label="Work"></ActionCardFooter>
             </>
           </ActionCard>
           <div className="w-full grid gap-2">
             <div className="w-full grid gap-2 grid-cols-2">
-              <ActionCard textColor="black" type={'MEDIUM'} bgColor="white">
+              <ActionCard
+                scrollTextColor="black"
+                scrollTextSize="4rem"
+                textColor="black"
+                type={'MEDIUM'}
+                bgColor="white"
+              >
                 <>
                   <ActionCardHeader></ActionCardHeader>
                   <ActionCardBody></ActionCardBody>
                   <ActionCardFooter icon={faFolder} label="Work"></ActionCardFooter>
                 </>
               </ActionCard>
-              <ActionCard textColor="white" type={'MEDIUM'} bgColor="#1B1B1F">
+              <ActionCard
+                scrollTextColor="white"
+                scrollTextSize="4rem"
+                textColor="white"
+                type={'MEDIUM'}
+                bgColor="#1B1B1F"
+              >
                 <>
                   <ActionCardHeader></ActionCardHeader>
                   <ActionCardBody></ActionCardBody>
@@ -78,7 +89,13 @@ export default function HeroSection() {
                 </>
               </ActionCard>
             </div>
-            <ActionCard textColor="black" type={'LARGE'} bgColor="#FFF480">
+            <ActionCard
+              scrollTextColor="black"
+              scrollTextSize="4rem"
+              textColor="black"
+              type={'LARGE'}
+              bgColor="#FFF480"
+            >
               <>
                 <ActionCardHeader></ActionCardHeader>
                 <ActionCardBody></ActionCardBody>

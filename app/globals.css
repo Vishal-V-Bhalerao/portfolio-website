@@ -18,6 +18,10 @@
   }
 }
 
+* {
+  box-sizing: border-box;
+}
+
 body {
   background-color: black;
   /* font-family: Open-Sans sans-serif; */
@@ -53,7 +57,7 @@ body {
 
 @keyframes slider {
   0% {
-    transform: translateX(100%) translate3d(0px, 0px, 0px);
+    transform: translateX(0%) translate3d(0px, 0px, 0px);
   }
   100% {
     transform: translateX(-100%) translate3d(0px, 0px, 0px);
