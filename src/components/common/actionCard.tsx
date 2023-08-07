@@ -7,9 +7,10 @@ interface ActionCardProps {
   type: 'XSMALL' | 'SMALL' | 'MEDIUM' | 'LARGE' | 'XLARGE'
   children?: ReactElement
   textColor: string
-  scrollTextSize: string
-  scrollTextColor: string
+  scrollTextSize?: string
+  scrollTextColor?: string
   hideTextOnHover?: boolean
+  disableAnimation?: boolean
 }
 
 const ActionCard: FC<ActionCardProps> = ({
@@ -20,9 +21,11 @@ const ActionCard: FC<ActionCardProps> = ({
   scrollTextSize,
   scrollTextColor,
   hideTextOnHover = false,
+  disableAnimation = false,
 }: ActionCardProps) => {
   const [isHoverActive, setIsHoverActive] = useState(false)
   const getClassNameByType = useCallback(() => {
+    if (disableAnimation) return ''
     let sizeClass = 'medium'
     switch (type) {
       case 'XSMALL':
@@ -50,32 +53,34 @@ const ActionCard: FC<ActionCardProps> = ({
       onMouseLeave={() => setIsHoverActive(false)}
       className={`flex flex-col justify-end p-14 cursor-pointer relative w-full h-full border-ra rounded-full overflow-hidden transition ease delay-100 bg-blue-500 duration-300 ${getClassNameByType()}`}
     >
-      <div
-        style={{
-          opacity: hideTextOnHover ? (isHoverActive ? 0 : 100) : isHoverActive ? 100 : 0,
-        }}
-        className="absolute transition-opacity top-1/3 flex gap-5"
-      >
-        <span
+      {!disableAnimation && (
+        <div
           style={{
-            fontSize: scrollTextSize,
-            color: scrollTextColor,
+            opacity: hideTextOnHover ? (isHoverActive ? 0 : 100) : isHoverActive ? 100 : 0,
           }}
-          className="inline-block font-bold text-white animation-slider whitespace-nowrap"
+          className="absolute transition-opacity top-1/3 flex gap-5"
         >
-          {'Frontend developer in React.'}
-        </span>
-        <span
-          style={{
-            fontSize: scrollTextSize,
-            color: scrollTextColor,
-          }}
-          className="inline-block font-bold text-white animation-slider whitespace-nowrap"
-        >
-          {'Frontend developer in React.'}
-        </span>
-      </div>
-      {!hideTextOnHover && isHoverActive ? null : children}
+          <span
+            style={{
+              fontSize: scrollTextSize,
+              color: scrollTextColor,
+            }}
+            className="inline-block font-bold text-white animation-slider whitespace-nowrap"
+          >
+            {'Frontend developer in React.'}
+          </span>
+          <span
+            style={{
+              fontSize: scrollTextSize,
+              color: scrollTextColor,
+            }}
+            className="inline-block font-bold text-white animation-slider whitespace-nowrap"
+          >
+            {'Frontend developer in React.'}
+          </span>
+        </div>
+      )}
+      <div>{children}</div>
     </div>
   )
 }
@@ -97,17 +102,11 @@ export const ActionCardHeader: FC<ActionCardHeaderProps> = ({ icon, label }) => 
 }
 
 export interface ActionCardBodyProps {
-  label?: string
-  icon?: IconDefinition
+  children?: ReactElement
 }
 
-export const ActionCardBody: FC<ActionCardBodyProps> = ({ icon, label }) => {
-  return (
-    <div className="flex justify-between items-center">
-      <div>{icon && <FontAwesomeIcon icon={icon}></FontAwesomeIcon>}</div>
-      <div>{label && <h5>{label}</h5>}</div>
-    </div>
-  )
+export const ActionCardBody: FC<ActionCardBodyProps> = ({ children }) => {
+  return <div className="flex justify-between items-center">{children}</div>
 }
 
 export interface ActionCardFooterProps {

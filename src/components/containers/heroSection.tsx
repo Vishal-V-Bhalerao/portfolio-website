@@ -4,7 +4,7 @@ import useMyCustomHook from '../../hooks/customTypedRef'
 import animationData from '@/public/json/feNtrQwSyg_new.json'
 import bgAnimationData from '@/public/json/animation_lk12zdpa.json'
 import React, { useEffect, useRef } from 'react'
-import ActionCard, { ActionCardBody, ActionCardFooter, ActionCardHeader } from '../common/action-card'
+import ActionCard, { ActionCardBody, ActionCardFooter, ActionCardHeader } from '../common/actionCard'
 import { faFolder, faFaceSmile, faPaperPlane } from '@fortawesome/free-regular-svg-icons'
 export default function HeroSection() {
   const { ref: animationRef } = useMyCustomHook<HTMLDivElement>()
