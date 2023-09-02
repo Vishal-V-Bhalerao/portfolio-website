@@ -1,7 +1,8 @@
 'use client'
 import { FC, ReactElement, useRef } from 'react'
 import { useIntersectionObserver } from '@/src/hooks/useIntersectionObserver'
-
+import TechSkillsSvg from '../../assets/svg/tech-skills.svg'
+import Image from 'next/image'
 interface SummaryProps {
   bgColor: string
   fontSize: string
@@ -20,18 +21,22 @@ const Summary: FC<SummaryProps> = ({ bgColor, fontSize, text, padding, textColor
         backgroundColor: bgColor,
         padding: padding,
       }}
-      className="rounded-large w-full h-full leading-snug"
+      className="rounded-large w-full h-full leading-snug flex"
     >
-      <p
-        ref={ref}
-        style={{
-          fontSize: fontSize,
-          color: textColor,
-        }}
-      >
-        <em>{text}</em>
-        <em>{percentVisible}%</em>
-      </p>
+      <div>
+        <p
+          ref={ref}
+          style={{
+            fontSize: fontSize,
+            color: textColor,
+          }}
+        >
+          <em>{text}</em>
+        </p>
+      </div>
+      <div>
+        <Image src={TechSkillsSvg} height={300} width={300} alt="tech"></Image>
+      </div>
     </div>
   )
 }

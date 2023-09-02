@@ -80,7 +80,7 @@ const ActionCard: FC<ActionCardProps> = ({
           </span>
         </div>
       )}
-      <div>{children}</div>
+      <div className="flex justify-between items-center h-full w-full">{children}</div>
     </div>
   )
 }
@@ -106,7 +106,7 @@ export interface ActionCardBodyProps {
 }
 
 export const ActionCardBody: FC<ActionCardBodyProps> = ({ children }) => {
-  return <div className="flex justify-between items-center">{children}</div>
+  return <div className="flex justify-center items-center h-full w-full">{children}</div>
 }
 
 export interface ActionCardFooterProps {

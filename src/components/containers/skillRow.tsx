@@ -1,5 +1,5 @@
 'use client'
-import { useRef } from 'react'
+import { FC, useRef } from 'react'
 
 import ActionCard, { ActionCardBody } from '../common/actionCard'
 import { useIntersectionObserver } from '@/src/hooks/useIntersectionObserver'
@@ -9,7 +9,12 @@ for (let i = 1; i <= 100; i++) {
   thresholdArray.push(i * 0.01)
 }
 
-const SkillRow = () => {
+export interface SkillRowProps {
+  skillName: string
+  description: string
+}
+
+const SkillRow: FC<SkillRowProps> = ({ skillName, description }: SkillRowProps) => {
   const ref = useRef(null)
   const entry = useIntersectionObserver(ref, { threshold: thresholdArray }) // [0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0]
   const percentVisible = entry?.intersectionRatio ? Math.floor(entry?.intersectionRatio * 50) : 0
@@ -17,7 +22,7 @@ const SkillRow = () => {
   return (
     <div>
       <div
-        className="flex flex-row w-full h-96"
+        className="flex flex-row w-full h-72 gap-2"
         style={
           {
             // backgroundColor: '#1B1B1F',
@@ -33,7 +38,7 @@ const SkillRow = () => {
         >
           <ActionCard bgColor={'#1B1B1F'} type={'MEDIUM'} textColor={'#A5A1FF'} disableAnimation>
             <ActionCardBody>
-              <p>{percentVisible}</p>
+              <h1 className="text-6xl">{skillName}</h1>
             </ActionCardBody>
           </ActionCard>
         </div>
@@ -45,7 +50,9 @@ const SkillRow = () => {
           }}
         >
           <ActionCard bgColor={'#A5A1FF'} type={'MEDIUM'} textColor={'#1B1B1F'} disableAnimation>
-            <ActionCardBody></ActionCardBody>
+            <ActionCardBody>
+              <p className="text-2xl">{description}</p>
+            </ActionCardBody>
           </ActionCard>
         </div>
       </div>
