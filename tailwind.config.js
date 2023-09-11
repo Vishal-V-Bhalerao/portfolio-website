@@ -14,7 +14,7 @@ module.exports = {
       DEFAULT: '4px',
       'md': '0.375rem',
       'lg': '0.5rem',
-      'full': '80px',
+      'full': '42px',
       'large': '90px',
     },
     extend: {
