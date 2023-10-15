@@ -21,19 +21,19 @@ export default function HeroSection() {
     }
   }, [bgAnimationRef])
   return (
-    <div className="w-full">
+    <div className="w-full cursor-pointer">
       <div ref={bgAnimationRef} className="absolute w-full h-full top-0 left-0 -z-10"></div>
-      <div className="w-full bg-transparent">
+      <div className="w-full bg-transparent cursor-pointer">
         <div className="w-full h-screen  flex flex-col justify-center items-center">
           <div>
             <p className="text-xl font-bold">{`HI! I am`}</p>
             <h1 className="text-6xl font-bold">{`Vishal Bhalerao`}</h1>
           </div>
         </div>
-        <div className="w-full h-3/5 grid gap-2 grid-cols-2">
+        <div className="w-full  h-130 grid gap-2 grid-cols-2">
           <ActionCard
             hideTextOnHover={true}
-            scrollTextColor="white"
+            scrollTextColor="black"
             scrollTextSize="9rem"
             textColor="black"
             type={'LARGE'}
