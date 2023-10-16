@@ -43,6 +43,18 @@ const ActionCard: FC<ActionCardProps> = ({
     }
     return sizeClass
   }, [type])
+
+  const getChildrenElement = () => {
+    if (isHoverActive) {
+      if (hideTextOnHover) {
+        return <div className="flex flex-col justify-between items-center h-full w-full">{children}</div>
+      } else {
+        return null
+      }
+    } else {
+      return <div className="flex flex-col justify-between items-center h-full w-full">{children}</div>
+    }
+  }
   return (
     <div
       style={{
@@ -80,7 +92,7 @@ const ActionCard: FC<ActionCardProps> = ({
           </span>
         </div>
       )}
-      <div className="flex justify-between items-center h-full w-full">{children}</div>
+      {getChildrenElement()}
     </div>
   )
 }
@@ -94,7 +106,7 @@ export interface ActionCardHeaderProps {
 
 export const ActionCardHeader: FC<ActionCardHeaderProps> = ({ icon, label }) => {
   return (
-    <div className="flex justify-between items-center">
+    <div className="flex justify-between items-center w-full">
       <div>{label && <h5>{label}</h5>}</div>
       <div>{icon && <FontAwesomeIcon icon={icon}></FontAwesomeIcon>}</div>
     </div>
@@ -116,7 +128,7 @@ export interface ActionCardFooterProps {
 
 export const ActionCardFooter: FC<ActionCardFooterProps> = ({ icon, label }) => {
   return (
-    <div className="flex justify-between items-center text-xl font-semibold">
+    <div className="flex justify-between items-center text-xl font-semibold w-full">
       <div>{label && <h5>{label}</h5>}</div>
       <div>{icon && <FontAwesomeIcon icon={icon}></FontAwesomeIcon>}</div>
     </div>

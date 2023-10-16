@@ -11,10 +11,10 @@ export default function Home() {
     <div className={'p-2 flex flex-col gap-2'}>
       <HeroSection></HeroSection>
       <Summary
-        fontSize={'7rem'}
+        fontSize={'6rem'}
         padding={'48px 70px'}
         bgColor={'#1B1B1F'}
-        textColor={'#A5A1FF'}
+        textColor={'#00C1EB'}
         text={`Innovative Front End Developer with 6.5 years of experience building and maintaining responsive websites.`}
       ></Summary>
       <div className="flex flex-col gap-2">
