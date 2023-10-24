@@ -1,13 +1,15 @@
-import { FC } from 'react'
+import { FC, HTMLAttributes } from 'react'
 
-interface TextAreaProp {
+interface TextAreaProp extends HTMLAttributes<HTMLTextAreaElement> {
   bgColor: string
   borderColor: string
   textColor: string
   inputType: string
+  name: string
+  value: string
 }
 
-const TextArea: FC<TextAreaProp> = ({ bgColor, borderColor, textColor, inputType }) => {
+const TextArea: FC<TextAreaProp> = ({ bgColor, borderColor, textColor, name, value, inputType, ...rest }) => {
   return (
     <div
       style={{
@@ -17,7 +19,13 @@ const TextArea: FC<TextAreaProp> = ({ bgColor, borderColor, textColor, inputType
       }}
       className="rounded-full px-20 py-14 w-full h-full"
     >
-      <textarea rows={10} className="w-full h-full bg-inherit focus-visible:outline-0"></textarea>
+      <textarea
+        name={name}
+        value={value}
+        rows={10}
+        className="w-full h-full bg-inherit focus-visible:outline-0 input-placeholder"
+        {...rest}
+      ></textarea>
     </div>
   )
 }

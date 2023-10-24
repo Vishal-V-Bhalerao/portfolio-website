@@ -34,6 +34,7 @@ const Summary: FC<SummaryProps> = ({ bgColor, fontSize, text, padding, textColor
   const percentVisible = entry?.intersectionRatio ? Math.floor(entry?.intersectionRatio * 100) : 0
   return (
     <div
+      id="about"
       style={{
         backgroundColor: bgColor,
         padding: padding,

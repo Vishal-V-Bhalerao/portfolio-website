@@ -11,6 +11,7 @@ interface ActionCardProps {
   scrollTextColor?: string
   hideTextOnHover?: boolean
   disableAnimation?: boolean
+  scrollText?: string
 }
 
 const ActionCard: FC<ActionCardProps> = ({
@@ -22,6 +23,7 @@ const ActionCard: FC<ActionCardProps> = ({
   scrollTextColor,
   hideTextOnHover = false,
   disableAnimation = false,
+  scrollText = '',
 }: ActionCardProps) => {
   const [isHoverActive, setIsHoverActive] = useState(false)
   const getClassNameByType = useCallback(() => {
@@ -79,7 +81,7 @@ const ActionCard: FC<ActionCardProps> = ({
             }}
             className="inline-block font-bold text-white animation-slider whitespace-nowrap"
           >
-            {'Frontend developer in React.'}
+            {scrollText}
           </span>
           <span
             style={{
@@ -88,7 +90,7 @@ const ActionCard: FC<ActionCardProps> = ({
             }}
             className="inline-block font-bold text-white animation-slider whitespace-nowrap"
           >
-            {'Frontend developer in React.'}
+            {scrollText}
           </span>
         </div>
       )}

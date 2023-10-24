@@ -36,9 +36,9 @@ const SkillRow: FC<SkillRowProps> = ({ skillName, description }: SkillRowProps) 
             transform: `translate(${Math.floor(50 - percentVisible)}%, 0%)`,
           }}
         >
-          <ActionCard bgColor={'#1B1B1F'} type={'MEDIUM'} textColor={'#A5A1FF'} disableAnimation>
+          <ActionCard bgColor={'#1B1B1F'} type={'MEDIUM'} textColor={'#A5A1FF'} disableAnimation hideTextOnHover>
             <ActionCardBody>
-              <h1 className="text-6xl">{skillName}</h1>
+              <em className="text-6xl">{skillName}</em>
             </ActionCardBody>
           </ActionCard>
         </div>
@@ -49,9 +49,9 @@ const SkillRow: FC<SkillRowProps> = ({ skillName, description }: SkillRowProps) 
             transform: `translate(${Math.floor(-50 + percentVisible)}%, 0%)`,
           }}
         >
-          <ActionCard bgColor={'#A5A1FF'} type={'MEDIUM'} textColor={'#1B1B1F'} disableAnimation>
+          <ActionCard bgColor={'#A5A1FF'} type={'MEDIUM'} textColor={'#1B1B1F'} disableAnimation hideTextOnHover>
             <ActionCardBody>
-              <p className="text-2xl">{description}</p>
+              <p className="text-xl">{description}</p>
             </ActionCardBody>
           </ActionCard>
         </div>
