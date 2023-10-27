@@ -1,6 +1,6 @@
 'use client'
 import { FC, ReactElement, useRef, useEffect } from 'react'
-import animationData from '@/public/json/127447-kitty-cat-error-404.json'
+import animationData from '@/public/json/shapes-1697977781069.json'
 import lottie from 'lottie-web'
 import useMyCustomHook from '../../hooks/customTypedRef'
 import { useIntersectionObserver } from '@/src/hooks/useIntersectionObserver'

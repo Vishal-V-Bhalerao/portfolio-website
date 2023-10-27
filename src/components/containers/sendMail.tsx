@@ -115,9 +115,7 @@ const SendMail: FC<SendMailProps> = ({ bgColor, fontSize, text, padding, textCol
             <em>{text}</em>
           </p>
         </div>
-        <div>
-          <Image src={TechSkillsSvg} height={300} width={300} alt="tech"></Image>
-        </div>
+        <div>{/* <Image src={TechSkillsSvg} height={300} width={300} alt="tech"></Image> */}</div>
       </div>
       <form ref={ref as LegacyRef<HTMLFormElement>} onSubmit={formik.handleSubmit}>
         <div className="m-2 form-grid gap-2">
