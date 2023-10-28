@@ -27,7 +27,7 @@ export default function Home() {
         {/* Same as */}
         <HeroSection></HeroSection>
         <Summary
-          fontSize={'6rem'}
+          fontSize={'5rem'}
           padding={'48px 70px'}
           bgColor={'#1B1B1F'}
           textColor={'#00C1EB'}
